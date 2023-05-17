@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 services:
   mysql-pinocchio:
     container_name: mysql-pinocchio
@@ -17,9 +17,10 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: pma-pinocchio
     depends_on:
-        - mysql-pinocchio
+      - mysql-pinocchio
     environment:
-        PMA_HOST: mysql-pinocchio
+      PMA_HOST: mysql-pinocchio
     restart: always
     ports:
-        - 8080:80
+      - 8080:80
+

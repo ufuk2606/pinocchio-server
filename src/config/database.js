@@ -4,7 +4,6 @@ import User from "../model/user-model.js";
 import sequelize from './connection.js';
 
 
-
 User.hasMany(Post, { foreignKey: 'userId', onDelete: 'CASCADE' });
 Post.belongsTo(User, { foreignKey: 'userId' });
 const connectToDatabase = async () => {
