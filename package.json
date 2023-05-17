@@ -1,0 +1,35 @@
+{
+  "name": "pinocchio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "auth0-js": "^9.20.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "express-oauth2-jwt-bearer": "^1.4.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "jwks-rsa": "^3.0.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.3",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-auth0": "^1.4.3",
+    "passport-jwt": "^4.0.1",
+    "puppeteer": "^19.8.5",
+    "sequelize": "^6.29.2"
+  }
+}
