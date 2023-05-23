@@ -7,7 +7,6 @@ const getUsers = async () => {
   } catch (error) {
     throw new Error('error while getting users');
   }
-
 }
 
 const getUserByEmail = async (pEmail) => {
@@ -26,12 +25,10 @@ const getUserByEmail = async (pEmail) => {
 
 const createUser = async (pUser) => {
   try {
-    // Check if user with provided email already exists
     const existingUser = await User.findOne({ where: { email: pUser.email } });
     if (existingUser) {
       throw new Error('User with this email already exists');
     }
-    // Create new user if email does not exist
     const newUser = await User.create(pUser);
     return newUser;
   } catch (error) {
