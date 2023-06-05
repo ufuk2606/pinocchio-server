@@ -29,7 +29,9 @@ const createBestellungen = async (pId,pProduct) => {
 const getMenüByCategory = async (pCategory) => {
   try {
     const menü = await Menü.findAll({
-      attributes: pCategory,
+      where: {
+        category:pCategory
+      },
     });
     return menü;
   } catch (error) {

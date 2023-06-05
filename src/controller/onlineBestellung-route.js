@@ -34,9 +34,9 @@ router.post("/bestellungen", async (req, res, next) => {
   }
 });
 
-router.get("/:category", async (req, res) => {
+router.get("/category", async (req, res) => {
   try {
-    const currentlyCategory = req.params.category;
+    const currentlyCategory = req.query.category;
     const menü = await onlineBestellungRepository.getMenüByCategory(currentlyCategory);
     return res.status(200).send(menü);
   } catch (error) {
