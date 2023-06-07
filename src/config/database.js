@@ -1,11 +1,14 @@
 
 import Bestellungen from "../model/bestellungen-model.js";
+import Rezervation from "../model/rezervation-model.js";
 import User from "../model/user-model.js";
 import sequelize from './connection.js';
 
 
 User.hasMany(Bestellungen, { foreignKey: 'userId', onDelete: 'CASCADE' });
 Bestellungen.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Rezervation, { foreignKey: 'userId', onDelete: 'CASCADE' });
+Rezervation.belongsTo(User, { foreignKey: 'userId' });
 const connectToDatabase = async () => {
   try {
     await sequelize.authenticate();

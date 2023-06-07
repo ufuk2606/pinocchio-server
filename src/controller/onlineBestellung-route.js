@@ -20,7 +20,7 @@ router.post("/bestellungen", async (req, res, next) => {
     const bestellungen  = req.body;
     const user = await userRepository.getUserByEmail(userEmail);
     await bestellungen.map((item) =>{
-      onlineBestellungRepository.createBestellungen(user.id,item.product )
+      onlineBestellungRepository.createBestellungen(user.id,item )
     } )
     return res.status(201).send(bestellungen);
   } catch (error) {

@@ -1,37 +1,24 @@
 import sequelize from "../config/connection.js";
 import { DataTypes } from "sequelize";
 
-const Bestellungen = sequelize.define(
-  "Bestellungen",
+const Rezervation = sequelize.define(
+  "Rezervation",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    anzahlPersonen: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: {
+    datum: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    count: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    price: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    abholen: {
+    uhrZeit: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    mitZahle: {
-      type: DataTypes.STRING,
-      defaultValue:"Barzahlung",
       allowNull: false,
     },
     mitteilung: {
@@ -51,9 +38,9 @@ const Bestellungen = sequelize.define(
     },
   },
   {
-    tableName: "bestellungen",
+    tableName: "rezervation",
     timestamps: false,
   }
 );
 
-export default Bestellungen;
+export default Rezervation;

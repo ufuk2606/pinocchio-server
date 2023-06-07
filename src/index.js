@@ -2,7 +2,8 @@ import express from 'express';
 import "./config/Database.js"
 import userRoute from './controller/user-route.js'
 import postRoute from './controller/post-route.js'
-import onlineBestellung from './controller/onlineBestellung-route.js'
+import onlineBestellungRoute from './controller/onlineBestellung-route.js'
+import rezervationRoute from './controller/rezervation-route.js'
 import cors from 'cors'
 import morgan from "morgan"
 import errorHandler from './middleware/errorHandler.js';
@@ -15,7 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 // API
 app.use("/api/v1/users", userRoute);
-app.use("/api/v1/onlineBestellung", onlineBestellung);
+app.use("/api/v1/onlineBestellung", onlineBestellungRoute);
+app.use("/api/v1/rezervation", rezervationRoute);
 app.use("/api/v1/posts", postRoute);
 app.use(errorHandler);
 
