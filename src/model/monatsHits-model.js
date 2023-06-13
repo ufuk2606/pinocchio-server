@@ -1,8 +1,8 @@
 import sequelize from "../config/connection.js";
 import { DataTypes } from "sequelize";
 
-const Menü = sequelize.define(
-  "Menü",
+const MonatsHits = sequelize.define(
+  "MonatsHits",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ const Menü = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -23,9 +23,9 @@ const Menü = sequelize.define(
     },
   },
   {
-    tableName: "menüs",
+    tableName: "monatsHits",
     timestamps: false,
   }
 );
 
-export default Menü;
+export default MonatsHits;
