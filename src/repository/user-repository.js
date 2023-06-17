@@ -22,6 +22,19 @@ const getUserByEmail = async (pEmail) => {
   }
 };
 
+const getUserById = async (pId) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: pId,
+      },
+    });
+    return user;
+  } catch (error) {
+    throw new Error("error while getting users");
+  }
+};
+
 const createUser = async (pUser) => {
   try {
     const existingUser = await User.findOne({ where: { email: pUser.email } });
@@ -37,30 +50,30 @@ const createUser = async (pUser) => {
 };
 
 const updateUser = async (pId, pUser) => {
+  
   try {
-    const existingUser = await User.findOne({ where: { id: pId } });
-    if (!existingUser) {
-      throw new Error("There is no user with this id");
-    }
-    const newUser = await User.update(
-      {
-        firstName: pUser.firstName,
-        lastName: pUser.lastName,
-        email: pUser.email,
-        telefon: pUser.telefon,
-        street: pUser.street,
-        place: pUser.place,
+    const updatedUser = await User.update(pUser,{
+      where: {
+        id: pId,
       },
-      {
-        where: {
-          id: pId,
-        },
-      }
-    );
-    return newUser;
+    });
+    return updatedUser;
   } catch (error) {
     console.log(error);
     throw error;
+  }
+};
+
+const updateUserImage = async (pid, pUpdatedUserImage) => {
+  try {
+    const updatedUser = await User.update({profilImage:pUpdatedUserImage},{
+      where: {
+        id: pid,
+      },
+    });
+    return updatedUser;
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -90,4 +103,6 @@ export default {
   getUserByEmail,
   updatedUsers,
   updateUser,
+  updateUserImage,
+  getUserById
 };

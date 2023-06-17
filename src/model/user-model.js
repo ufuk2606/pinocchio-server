@@ -38,6 +38,11 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       defaultValue: "user",
     },
+    profilImage: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "https://hicoders-fp.fra1.digitaloceanspaces.com/pinocchio_c882028d-8e22-464b-acd7-2d9aa43340bf",
+    },
   },
   {
     tableName: "users",
