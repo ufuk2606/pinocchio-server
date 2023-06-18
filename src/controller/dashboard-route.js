@@ -7,6 +7,7 @@ import multer from 'multer';
 import {v4 as uuidv4} from 'uuid';
 import mittagsmenüRepository from "../repository/mittagsmenü-repository.js";
 import speisekartenmenüRepository from "../repository/speisekartenmenü-repository.js";
+import bestellungRepository from "../repository/bestellung-repository.js";
 
 const router = express.Router();
 
@@ -132,6 +133,33 @@ router.get('/image', async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send();
+  }
+});
+
+router.get('/total', async (req, res) => {
+  try {
+    const total = await bestellungRepository.getTotalVerkauf();
+    return res.status(200).json( total );
+  } catch (error) {
+    console.log(error);
+    res.status(500).send();
+  }
+});
+
+router.get("/altebestellungen", async (req, res, next) => {
+  try {
+    const userEmail = req.query.email;
+    const user = await userRepository.getUserByEmail(userEmail);
+    const alteBestellungen = await bestellungRepository.getAlteBestellung(user.id);
+    return res.status(201).send(alteBestellungen);
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return res.status(400).send({ message: "Invalid user input" });
+    } else if (error.message === "User with this email already exists") {
+      return next({ message: "A user with this email already exists" });
+    } else {
+      return next(error);
+    }
   }
 });
 
