@@ -10,7 +10,7 @@ const Mittagsmenü = sequelize.define(
       autoIncrement: true,
     },
     content: {
-      type: DataTypes.BLOB,
+      type: DataTypes.TEXT("long"),
       allowNull: false,
     },
     createdAt: {

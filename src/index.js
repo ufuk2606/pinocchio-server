@@ -7,6 +7,7 @@ import rezervationRoute from './controller/rezervation-route.js'
 import kontaktRoute from './controller/kontakt-route.js'
 import dashboardRoute from './controller/dashboard-route.js'
 import speisekartenRoute from './controller/speisekarten-route.js'
+import galleryRoute from './controller/gallery-route.js'
 import cors from 'cors'
 import morgan from "morgan"
 import errorHandler from './middleware/errorHandler.js';
@@ -25,6 +26,7 @@ app.use("/api/v1/kontakt", kontaktRoute);
 app.use("/api/v1/posts", postRoute);
 app.use("/api/v1/dashboard", dashboardRoute);
 app.use("/api/v1/speisekarten", speisekartenRoute);
+app.use("/api/v1/gallery", galleryRoute);
 app.use(errorHandler);
 
 export default app;

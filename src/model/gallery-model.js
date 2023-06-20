@@ -1,15 +1,15 @@
 import sequelize from "../config/connection.js";
 import { DataTypes } from "sequelize";
 
-const Speisekartenmenü = sequelize.define(
-  "Speisekartenmenü",
+const Gallery = sequelize.define(
+  "Gallery",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    images: {
       type: DataTypes.TEXT("long"),
       allowNull: false,
     },
@@ -18,13 +18,16 @@ const Speisekartenmenü = sequelize.define(
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+    },
   },
   {
-    tableName: "speisekartenmenü",
+    tableName: "gallery",
     timestamps: false,
   }
 );
 
-export default Speisekartenmenü;
-
-// ALTER TABLE `speisekartenmenü` MODIFY COLUMN `content` LONGTEXT;
+export default Gallery;
