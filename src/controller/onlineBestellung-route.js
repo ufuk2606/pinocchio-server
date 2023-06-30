@@ -19,7 +19,6 @@ router.post("/bestellungen", async (req, res, next) => {
   try {
     const userEmail = req.query.email;
     const bestellungen = req.body;
-    console.log(bestellungen);
     const user = await userRepository.getUserByEmail(userEmail);
     await bestellungen.map((item) => {
       onlineBestellungRepository.createBestellungen(user.id, item);
